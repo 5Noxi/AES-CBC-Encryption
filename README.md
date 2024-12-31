@@ -1,5 +1,5 @@
 # Omni-Crypter
-Uses AES-256 encryption and advanced obfuscation (base64 &amp; reversed, math, bxor...) to make it hard to read or reverse your code (includes AMSI bypass). It supports compression, ensures unique keys/variables. Uses MBA obfuscarted commands/strings!
+Uses AES-256 encryption and advanced obfuscation (base64 &amp; reversed, math, bxor, mixed boolean arithmetic...) to make it hard to read or reverse your code (includes AMSI bypass). It supports compression, ensures unique keys/variables. Uses MBA obfuscarted commands/strings!
 
 **Preview:**
 ![omnipre](https://github.com/5Noxi/Omni-Crypter/blob/main/NV-Omni1.png?raw=true)
