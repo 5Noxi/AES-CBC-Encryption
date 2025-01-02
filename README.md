@@ -20,7 +20,7 @@ Uses AES-256 encryption and advanced obfuscation (base64 &amp; reversed, math, b
    - Supports `Gzip` and `Deflate` compression
 - String and control flow obfuscation
    - AMSI bypass
-   - **Extremely Randomized** variable names & decrypter stub *(Reversed/shuffled)* - **Obfuscates all commands/strings with MBA (Mathematical Binary Algebra), then obfuscates them even further with math techniques**
+   - **Extremely Randomized** variable names & decrypter stub *(Reversed/shuffled)* - **Obfuscates all commands/strings with MBA (mixed boolean artihmetric), then obfuscates them even further with math techniques**
    - **Comment** confusion / randomized comments for additional obfuscation *(everywhere ;D)*
    - **Each layer** gets different commands *(MBA obfuscated)*
 - Adjustable **encryption iterations**
