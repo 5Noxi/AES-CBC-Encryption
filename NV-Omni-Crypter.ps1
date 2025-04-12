@@ -1,5 +1,5 @@
-﻿#    Noxi's Powershell Crypter
-#    Copyright (C) 2024 Noverse
+#    Noxi's Powershell Crypter
+#    Copyright (C) 2025 Noverse
 #
 #    This program is proprietary software: you may not copy, redistribute, or modify
 #    it in any way without prior written permission from Noverse.
@@ -14,12 +14,11 @@
 #
 #    Usage example: . \NV-Omni-Crypter.ps1;nvcrypter -nvi "\Test.ps1" -nvo "\Encrypted.ps1" -Iterations 2
 
-set-strictmode -version latest
 $nv = "Authored by Noxi-Hu - (C) 2025 Noverse"
 sv -scope global -name "erroractionpreference" -value "stop"
-sv -Scope Global -Name "ProgressPreference" -Value "SilentlyContinue"
+sv -Scope Global -Name "progresspreference" -Value "silentlycontinue"
 iwr 'https://github.com/5Noxi/5Noxi/releases/download/Logo/nvbanner.ps1' -o "$env:temp\nvbanner.ps1";. $env:temp\nvbanner.ps1
-$Host.UI.RawUI.BackgroundColor="Black"
+$Host.UI.RawUI.BackgroundColor="black"
 $Host.ui.rawUi.WINDoWtiTlE=([SYSTem.text.EncoDING]::UTf8.geTsTring([SyStem.CONvErt]::FROMbasE64StRIng('Tm94aSdzIFBvd2VyU2hlbGwgQw==')) + [sYsTEM.teXT.enCoDInG]::Utf8.geTstrINg((0x72, 0x79, 0x70, 0x74, 101, 0x72)))
 clear
 
@@ -35,9 +34,9 @@ function log {
 function nvrandom {
     param ()
     $length = Get-random -Minimum 16 -Maximum 33
-    $base64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    $nvrandomstring = -join (1..($length - 8) | ForEach-Object { $base64chars[(Get-random -Minimum 0 -Maximum $base64chars.Length)] })
-    $vars = @(([SYStEM.tEXT.eNCodInG]::Utf8.GeTstRING((0x4e, 0x6f, 0x78, 73))), ([SYsteM.TEXt.enCOdiNg]::uTf8.gETsTrING((110, 48, 111, 88)) + [SYSTem.Text.eNcOdinG]::uTF8.GetStrIng((0x69, 49))), ([sYSTem.tExT.eNCOding]::UTF8.GETsTRing((110, 111)) + [SySTEM.text.eNCOdiNG]::utF8.GeTSTRING([sYstem.CoNverT]::fRomBaSE64StrIng('eFhpMQ=='))), ([SystEm.TEXt.enCOdINg]::UtF8.gEtstrINg((0x4e, 0x30, 0x78, 0x6c))), ([SystEm.teXT.eNcOdINg]::Utf8.geTSTriNG((0x4e, 0x6f, 0x78, 73))), ([sYSTeM.TexT.ENcODiNG]::UTF8.GeTSTrINg((0x6e, 0x6f, 0x58)) + [SysTEm.tEXT.ENcOding]::UTf8.GetSTRinG((0x31))), ([SyStEM.TeXT.eNCODInG]::Utf8.GETStRINg((0x4e, 0x6f, 0x6f)) + [SysTem.tExT.EncodinG]::UTF8.GEtstRing((0x78, 0x49))), ([sysTEM.TExt.encODINg]::UtF8.GEtStriNg([SYSTeM.ConvErt]::fROmBasE64stRiNG('bjBY')) + [SYStEm.TeXt.EncODing]::utF8.gEtStriNG((0x69, 0x69))), ([sYsTEM.TeXT.encodiNg]::Utf8.GeTStRinG((0x4e, 0x6f, 0x78, 73))), ([sySTEm.TEXt.eNCOdIng]::uTF8.GetSTRING((110, 48, 48, 120)) + [sYSTem.tExT.eNCoDiNG]::utf8.GEtSTrIng((0x78, 0x69, 0x69))), ([SySteM.tEXT.ENCoDING]::utf8.GETsTRING((0x4e, 0x6f)) + [SYStem.tEXT.ENcOdiNg]::UTF8.geTstrINg((48, 48, 0x78, 73))), ([SysTeM.teXt.EnCoDing]::uTf8.gETStrinG((110, 48, 111)) + [SystEM.tEXT.EnCOdIng]::UTF8.gEtstRIng((120, 88)) + [SYsteM.TExT.ENCOdinG]::uTF8.GETstRiNG(105)), ([sYSTeM.texT.ENCoDinG]::utF8.GetstRING((110, 0x6f, 88)) + [sysTeM.TEXt.eNcodING]::UTF8.GetsTrinG((0x69, 0x31))), ([SysTEM.tExt.eNcoDiNG]::UTf8.getstrInG((0x4e, 48, 120, 0x6c)) + [SySTem.tExt.ENcodinG]::uTf8.GetSTRIng(49)), ([sYStEm.TEXt.ENCOdinG]::UTf8.geTStRinG((0x6e, 0x6f)) + [sYSTEm.TExT.EncOdinG]::UTF8.gETsTriNG((88, 49, 49, 105))), ([SYstEm.tExT.ENcoDINg]::uTF8.getstriNg((0x6e, 111)) + [SYSTEm.TEXt.EncodiNG]::uTF8.GETStRing((88, 49, 105)) + [SYstem.Text.ENCoDIng]::UTF8.GEtsTriNg(49)), ([SySTEm.teXt.ENcOdING]::utF8.GetStrinG((78, 0x6f, 111, 0x78)) + [sySTem.TExt.EnCoDiNG]::Utf8.GETStRINg((88, 73))), ([SyStEM.TeXt.eNCODinG]::uTf8.geTsTrIng((110, 48)) + [sYSTEM.TexT.eNcOdiNg]::uTF8.GeTSTRINg((88, 120, 105, 49)) + [sYsTEm.teXT.encodiNg]::utF8.geTStRiNg([systEm.CoNveRT]::fROMbaSe64STriNG('aQ=='))), ([SysTEM.Text.encODing]::Utf8.GetStRInG((0x6e, 0x6f, 0x31, 0x58)) + [SYStem.TeXt.encODinG]::Utf8.GeTStRINg((105, 49))), ([SySTeM.teXT.EncOdIng]::uTf8.gEtStrING((0x4e, 0x6f, 0x6f, 0x78)) + [sYstEm.texT.ENcODING]::Utf8.gEtSTrINg((0x58, 0x49, 0x31)) + [sYstEm.TeXt.EnCODING]::utF8.GetstrING([sYStem.COnVeRT]::FRoMbaSE64StRINg('MQ==')))) | .([char](((4868 -Band 7955) + (4868 -Bor 7955) - 9127 - 3625))+[char](((-18519 -Band 2665) + (-18519 -Bor 2665) + 6281 + 9674))+[char](((-12184 -Band 686) + (-12184 -Bor 686) + 4077 + 7537))+[char](((13493 -Band 785) + (13493 -Bor 785) - 9093 - 5140))+[char](((3519 -Band 3444) + (3519 -Bor 3444) - 3388 - 3461))+[char](((-18345 -Band 9023) + (-18345 -Bor 9023) + 92 + 9327))+[char]((3441 - 8103 - 170 + 4942))+[char](((-19640 -Band 5191) + (-19640 -Bor 5191) + 9513 + 5036))+[char]((-308 - 4156 - 1527 + 6102))+[char](((-15301 -Band 4578) + (-15301 -Bor 4578) + 6623 + 4209)))
+    $chars = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي的一是不了人在有我他这中大来上国个说们为子和你地出道也时年得就那要下以生会自着去之过家学对可里后小么心多天而能好没把看起发成只如事行方所然家种事成者部都其些主样理她两高长机当从动同工使点明问力与アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンАаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯяΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσΤτΥυΦφΧχΨψΩω"
+    $nvrandomstring = -join (1..($length - 8) | ForEach-Object { $chars[(Get-random -Minimum 0 -Maximum $chars.Length)] })
+    $vars = @("ЖفнψNΔgοnξνoηλgOΩxиXιΒиΦIςΟθ","ΞسqЖNνυζФnرαOοψηζΦχйXxσкIυиi","بчهΛNφnЮxϒηοOΞχنΦdгωXzεΤIο","ςФκNωнqЯnΞΟйoжzмσцγxXλиΥIر","γтοοNnνцoΩЖξλOzψχxηXϕgτIϖΛ","كξНζNnοΨgχοсρxOнλςzXϕγIτϖ","δνwφйqNΥnχαgολOبγXτΘΨIσξxη","οzψخrNnξοgχzOνϒϕxoXλqнIβζ","ΨχКNصrΩnΨζxيΦOοαξXΛυξoIθγ","чقτNΛξοϒεΨшzχOnζxXωηλΦIρo","вογιNوϖoχtσnξOxιΔXψнгzIΞqF","uςΦNrηnzгtoΘχOσxζXkqيϒIβξo","ςcNεdмzxαχnΨOqζγoXΘυϖxIΩΛ","رщwNαЙxnψgηχsOoϖΦXξζtnIοξ","vوlнϒiNχσζΦξkOnxγXnoФجυIo","βoϒлнNxvγΨiχΦOzntXoxξkIqΥχ","χυΘNتnqξψΦiOxζоgσXΛγboοIxh","ژоυϕвNknxψوgOχqξXζxiοΨβInρo","χqvNوсrξnxηψоζOϖoσXΛηФxIiб","تvρΞψϕNgzχwoνOnxσxiXкΥΦdvnξ") | Get-random
     $nvrandomstring = $vars + $nvrandomstring
     $midpoint = [math]::Floor($nvrandomstring.Length / 2)
     $nvrandomstring = $nvrandomstring.Substring(0, $midpoint) + $vars + $nvrandomstring.Substring($midpoint)
@@ -46,17 +45,17 @@ function nvrandom {
 
 function mathkey {
     param ()
-    $length = Get-random -Minimum 6 -Maximum 12
-    $base64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    $nvrandomstring = -join (1..($length - 8) | ForEach-Object { $base64chars[(Get-random -Minimum 0 -Maximum $base64chars.Length)] })
-    $vars = @(([syStem.TEXt.EncoDINg]::UTF8.getStrING((0x4e, 0x6f, 0x78)) + [sysTeM.TeXt.ENCoDinG]::utf8.getStriNG(73)), ([system.tEXt.ENCodINg]::uTF8.getstRINg((0x6e, 0x30)) + [SYStem.tEXt.eNcOdInG]::utf8.gEtStRIng((111, 88)) + [SYstEM.tEXT.encodiNg]::uTF8.GetstrIng((105, 49))), ([SYstEM.TeXT.EncOdinG]::utf8.geTSTRinG((0x6e, 0x6f)) + [sySTeM.Text.eNCODiNg]::UtF8.GEtSTRING([sySTeM.COnvERt]::fROmbasE64strIng('eFhpMQ=='))), ([sYStEM.teXt.EncoDInG]::uTF8.gETsTrIng((78, 48, 120)) + [sYsteM.Text.EnCodiNg]::UTF8.getsTrInG(108)), ([SYStEM.Text.eNcodinG]::utF8.GetSTRiNG((0x4e, 0x6f, 0x78)) + [sYsTeM.TEXt.enCODiNg]::UTf8.GEtstrIng(73)), ([sYStEm.TEXt.eNcOdiNg]::uTF8.GetsTRinG((110, 111)) + [sYstem.TEXT.enCOdING]::UtF8.gETSTRING([SysteM.coNveRT]::fRoMbaSe64stRINg('WDE='))), ([sYsTEM.TeXt.eNCODInG]::utf8.GeTSTriNG((0x4e, 0x6f, 0x6f)) + [sYstEm.tExt.eNCodinG]::uTF8.gETsTRing((120, 73))), ([sYSteM.teXt.eNCoDIng]::uTF8.GETSTRIng((0x6e, 0x30, 0x58)) + [SySteM.Text.eNcODiNG]::utf8.gEtSTrinG((105, 0x69))), ([SYStEm.teXT.enCodinG]::UTF8.GETSTRinG((0x4e, 0x6f, 0x78)) + [SYStEm.TEXT.EncodING]::Utf8.GEtstRiNg(73)), ([SysTem.teXT.enCOdinG]::utf8.gETStRinG((110, 48, 0x30)) + [SystEM.TExT.ENCoding]::UtF8.GeTsTRing((0x78, 0x78, 0x69)) + [SystEm.Text.EnCODING]::UTf8.GetSTRing((105))), ([sYsTeM.TExt.enCODing]::Utf8.gEtStRInG([systeM.conveRT]::fROMbAsE64sTrIng('Tm8w')) + [system.TExt.ENCoDInG]::Utf8.gEtSTriNG((48, 120, 73))), ([sySteM.tExT.EnCODING]::utF8.geTStRiNG([System.cONvERt]::FrOmbASE64STriNg('bjBveA==')) + [sySTEM.text.EncODing]::utf8.GeTSTrINg((88, 0x69))), ([sYSTEM.tExT.EncodIng]::Utf8.GETSTring((110, 111, 0x58, 0x69)) + [system.TExT.ENcOdING]::uTF8.GETstring([sySTem.CONveRt]::frOMbaSe64striNg('MQ=='))), ([SySTEm.Text.eNcoDINg]::UTF8.GETStriNG([SySTEm.cOnvERt]::fROmbaSe64StrInG('TjB4bA==')) + [SYSteM.tExt.ENCodING]::UTf8.GeTSTRiNg(49)), ([sYsteM.tExt.eNcODiNG]::UTf8.geTSTrINg((0x6e, 0x6f, 88)) + [sYstEm.tEXT.EncODING]::Utf8.GETsTrInG((0x31, 49)) + [sYsTeM.Text.ENCoding]::UtF8.getstrInG((105))), ([sYsTEm.TEXt.EnCoDING]::utf8.gEtSTring((0x6e, 111)) + [sYSTem.tExt.eNCoDIng]::UtF8.getstriNg((0x58, 0x31, 0x69)) + [sySTeM.tExT.encodIng]::UTf8.GetstrINg((49))), ([systeM.Text.encOding]::uTf8.GEtsTRIng((78, 111)) + [SYSTem.tExT.enCodIng]::Utf8.GEtsTRiNg((0x6f, 0x78, 0x58)) + [sYSteM.TEXt.ENcODINg]::UTf8.GEtSTring([system.CONVert]::FRoMBase64StrIng('SQ=='))), ([SyStEm.TEXt.eNCOdING]::Utf8.GEtStRiNg((0x6e, 0x30, 0x58)) + [SYStEm.tExt.encoDING]::uTf8.GetstrING((0x78, 0x69, 49, 105))), ([sYstEM.teXt.eNCODIng]::uTF8.GETstrinG((0x6e, 0x6f, 0x31, 0x58)) + [sYstEm.tExT.EnCODInG]::uTf8.GEtsTriNg((105, 49))), ([SySteM.tEXt.eNCoding]::UTf8.GETsTRING((0x4e, 0x6f)) + [sYsTeM.tEXt.EnCOdInG]::UTf8.GeTsTrIng([sYStEM.COnVErt]::FROMbase64stRINg('b3g=')) + [sYsTEm.TExT.ENcOdinG]::uTF8.geTsTRiNg((88, 73, 49, 49)))) | .([char]((6755 - 3469 + 1509 - 4724))+[char](((9338 -Band 296) + (9338 -Bor 296) - 8295 - 1238))+[char]((14279 - 3765 - 2031 - 8367))+[char](((-13906 -Band 5173) + (-13906 -Bor 5173) + 3417 + 5361))+[char]((18036 - 2898 - 6118 - 8906))+[char]((-3799 - 2412 - 1351 + 7659))+[char]((-1325 - 2104 - 3236 + 6775))+[char]((6821 - 1782 - 2074 - 2865))+[char](((-3741 -Band 5394) + (-3741 -Bor 5394) + 2153 - 3695))+[char](((-12542 -Band 8824) + (-12542 -Bor 8824) + 9060 - 5233)))    
+    $length = Get-random -Minimum 32 -Maximum 65
+    $chars = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي的一是不了人在有我他这中大来上国个说们为子和你地出道也时年得就那要下以生会自着去之过家学对可里后小么心多天而能好没把看起发成只如事行方所然家种事成者部都其些主样理她两高长机当从动同工使点明问力与アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンАаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯяΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσΤτΥυΦφΧχΨψΩω"
+    $nvrandomstring = -join (1..($length - 8) | ForEach-Object { $chars[(Get-random -Minimum 0 -Maximum $chars.Length)] })
+    $vars = @("ЖفнψNΔgοnξνoηλgOΩxиXιΒиΦIςΟθ","ΞسqЖNνυζФnرαOοψηζΦχйXxσкIυиi","بчهΛNφnЮxϒηοOΞχنΦdгωXzεΤIο","ςФκNωнqЯnΞΟйoжzмσцγxXλиΥIر","γтοοNnνцoΩЖξλOzψχxηXϕgτIϖΛ","كξНζNnοΨgχοсρxOнλςzXϕγIτϖ","δνwφйqNΥnχαgολOبγXτΘΨIσξxη","οzψخrNnξοgχzOνϒϕxoXλqнIβζ","ΨχКNصrΩnΨζxيΦOοαξXΛυξoIθγ","чقτNΛξοϒεΨшzχOnζxXωηλΦIρo","вογιNوϖoχtσnξOxιΔXψнгzIΞqF","uςΦNrηnzгtoΘχOσxζXkqيϒIβξo","ςcNεdмzxαχnΨOqζγoXΘυϖxIΩΛ","رщwNαЙxnψgηχsOoϖΦXξζtnIοξ","vوlнϒiNχσζΦξkOnxγXnoФجυIo","βoϒлнNxvγΨiχΦOzntXoxξkIqΥχ","χυΘNتnqξψΦiOxζоgσXΛγboοIxh","ژоυϕвNknxψوgOχqξXζxiοΨβInρo","χqvNوсrξnxηψоζOϖoσXΛηФxIiб","تvρΞψϕNgzχwoνOnxσxiXкΥΦdvnξ") | Get-random
     $nvrandomstring = $vars + $nvrandomstring
     $midpoint = [math]::Floor($nvrandomstring.Length / 2)
     $nvrandomstring = $nvrandomstring.Substring(0, $midpoint) + $vars + $nvrandomstring.Substring($midpoint)
     return $nvrandomstring.Substring(0, $length)
 }
 
-# Creating these presets was extremly annoying... but it's extremly randomized now ;D 
+# Yep, it works.
 function reverseobf {
     $nvreverse = @(
         '([char]((2461 - 1692 - 4549 + 3862))+[char](((-5471 -Band 4331) + (-5471 -Bor 4331) - 554 + 1763))+[char]((-567 - 8705 + 491 + 8867))+[char]((-6408 - 5659 + 4477 + 7659))+[char](((-3248 -Band 2956) + (-3248 -Bor 2956) + 5064 - 4690))+[char](((-12403 -Band 4618) + (-12403 -Bor 4618) - 1959 + 9827))+[char]((8382 - 2855 - 4973 - 485)))',
@@ -355,7 +354,7 @@ function noobf {
 
 function confusekey {
     param ([int]$keycount = 5,[int]$minkeylength = 70,[int]$maxkeylength = 80)
-    $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=|~?!`*§%&()[]{}-+:;\"<>$^'
+    $alphabet = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي的一是不了人在有我他这中大来上国个说们为子和你地出道也时年得就那要下以生会自着去之过家学对可里后小么心多天而能好没把看起发成只如事行方所然家种事成者部都其些主样理她两高长机当从动同工使点明问力与アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンАаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯяΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσΤτΥυΦφΧχΨψΩω"
     $alphabetarray = $alphabet.ToCharArray()
     $alphabetsize = $alphabetarray.Length
     $nvrandomkeys = @()
@@ -369,7 +368,7 @@ function confusekey {
 
 function linefuse {
     param ([int]$keycount = 4,[int]$minkeylength = 75,[int]$maxkeylength = 100)
-    $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    $alphabet = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي的一是不了人在有我他这中大来上国个说们为子和你地出道也时年得就那要下以生会自着去之过家学对可里后小么心多天而能好没把看起发成只如事行方所然家种事成者部都其些主样理她两高长机当从动同工使点明问力与アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンАаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯяΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσΤτΥυΦφΧχΨψΩω"
     $alphabetarray = $alphabet.ToCharArray()
     $alphabetsize = $alphabetarray.Length
     $nvrandomkeys = @()
@@ -380,7 +379,7 @@ function linefuse {
     }return ($nvrandomkeys -join "`n")
 }
 
-function number {param ([int]$min = 10,[int]$max = 999999);return Get-random -Minimum $min -Maximum $max}
+function number {param ([int]$min = 10000,[int]$max = 999999999);return Get-random -Minimum $min -Maximum $max}
 
 function nvcrypter {
     [CmdletBinding()]Param ([Parameter(Mandatory,ValueFromPipeline,ValueFromPipelineByPropertyName)][string] $nvi = $(log "[-]" "Nvi not set"),[Parameter(Mandatory,ValueFromPipeline,ValueFromPipelineByPropertyName)][string] $nvo = $(log "[-]" "Nvo not set"),
@@ -682,16 +681,16 @@ function nvcrypter {
             param([string]$nvcode)
             $lines = $nvcode -split "`n"
             $modifiedc = 0
-            $vars = @(([sYsTEM.tExt.EncOdinG]::UTf8.getSTRing((0x4e, 0x6f)) + [sysTEm.texT.EnCoDING]::UtF8.gEtsTRING((120, 73))), ([SystEm.TEXT.encODING]::utf8.getSTrinG((110, 48, 111)) + [sySTem.TExT.ENcOdinG]::utF8.gEtStRing((0x58, 0x69, 0x31))), ([SYStem.TExT.encODIng]::Utf8.getstrInG((110, 111, 0x78)) + [System.tEXT.encoDINg]::UTf8.GEtstRING((88, 105, 49))), ([sYSTeM.text.encodiNg]::UTf8.GEtsTriNG((0x4e, 0x30)) + [sYstEm.TExt.enCodiNg]::UTF8.getSTRInG([sYsTeM.Convert]::fRoMBASE64StrING('eGw='))), ([sYSTEM.TeXT.enCoDing]::uTf8.GETStRInG((0x4e, 0x6f)) + [SystEM.text.enCoDiNG]::utF8.gETSTRINg((120, 73))), ([system.TExt.eNCodIng]::utf8.getstring((0x6e, 0x6f, 0x58)) + [SYSTeM.TexT.eNCODing]::utf8.gETsTrInG((49))), ([sYstEm.TeXt.EncoDing]::UTf8.gEtSTRing((78, 111, 111, 120)) + [system.text.enCodIng]::Utf8.GetStrinG((73))), ([sYSteM.tEXt.eNCodINg]::uTf8.gETSTRing((0x6e, 0x30, 0x58)) + [SYSTem.text.eNCoDing]::UtF8.gEtsTRINg((105, 0x69))), ([SYstEM.tEXT.eNcODIng]::utF8.GEtSTrinG((0x4e, 0x6f)) + [SysTem.TeXt.eNCODiNg]::uTF8.GEtStRing((120, 73))), ([sYsteM.TEXT.ENcODINg]::uTf8.GetsTRInG((0x6e, 48, 48)) + [systEM.teXt.ENCodiNg]::UtF8.getStriNG((0x78, 0x78, 0x69, 0x69))), ([sysTem.TExT.enCodInG]::UTf8.GEtSTriNg((0x4e, 0x6f)) + [SYstEM.tExT.EncodinG]::utf8.GEtsTRING((0x30, 0x30, 0x78)) + [sysTeM.text.encODInG]::Utf8.gEtsTriNg([SysTEm.coNVerT]::FrOmBaSe64strinG('SQ=='))), ([SYStem.tEXT.eNCOdIng]::UTF8.getSTRING((0x6e, 0x30, 0x6f, 0x78)) + [sYSTEM.TExT.encoDiNG]::utf8.gETsTRINg((88, 105))), ([sYStEm.tEXt.enCOdiNg]::UtF8.GetsTrIng([SYSTem.coNVeRt]::fROMbAse64StriNg('bm8=')) + [sYsTEM.TEXt.enCodiNg]::utf8.geTStRing((0x58, 105, 0x31))), ([SYStem.TExT.EncodINg]::Utf8.GetStRing((0x4e, 0x30, 0x78)) + [sYsTEM.TEXt.EncoDIng]::UtF8.geTSTRING((0x6c, 0x31))), ([SYsTEm.Text.EnCOdINg]::utF8.getstrIng((110, 111, 88, 49)) + [SySTEm.TExt.enCoDInG]::uTf8.gEtsTRINg([sySTEm.cONverT]::frOmBAsE64stRIng('MWk='))), ([sYStem.tExT.eNCOdiNg]::UTf8.getsTriNg((110, 111, 88)) + [sYSTem.TExt.enCODIng]::utF8.GeTstring((0x31, 105, 0x31))), ([SYStEm.texT.enCOdinG]::UtF8.GetSTRiNg((78, 111, 111)) + [SysTeM.tEXT.enCODIng]::UTF8.gEtstrInG([SYSteM.cOnveRt]::FrombASE64StriNg('eFhJ'))), ([SYsTeM.text.ENcODInG]::utf8.gETstRing((110, 48, 0x58)) + [sYStem.TEXt.encoDing]::uTF8.getsTRING((120, 105, 49, 105))), ([SYstEm.tEXT.EncOdIng]::UTF8.GeTSTrIng((0x6e, 0x6f, 0x31)) + [SYsteM.teXt.eNCoDInG]::UTF8.gETStrInG((88, 105, 0x31))), ([SYsTeM.tEXt.eNCODIng]::uTF8.GetsTRing((0x4e, 0x6f, 0x6f)) + [SYSteM.teXT.EnCODinG]::uTF8.GeTString((120, 88, 73)) + [sySTEM.TEXT.eNCODINg]::uTF8.gETstrING([SYSteM.cONverT]::frombAsE64sTRiNG('MTE='))))
+            $vars = @("ЖفнψNΔgοnξνoηλgOΩxиXιΒиΦIςΟθ","ΞسqЖNνυζФnرαOοψηζΦχйXxσкIυиi","بчهΛNφnЮxϒηοOΞχنΦdгωXzεΤIο","ςФκNωнqЯnΞΟйoжzмσцγxXλиΥIر","γтοοNnνцoΩЖξλOzψχxηXϕgτIϖΛ","كξНζNnοΨgχοсρxOнλςzXϕγIτϖ","δνwφйqNΥnχαgολOبγXτΘΨIσξxη","οzψخrNnξοgχzOνϒϕxoXλqнIβζ","ΨχКNصrΩnΨζxيΦOοαξXΛυξoIθγ","чقτNΛξοϒεΨшzχOnζxXωηλΦIρo","вογιNوϖoχtσnξOxιΔXψнгzIΞqF","uςΦNrηnzгtoΘχOσxζXkqيϒIβξo","ςcNεdмzxαχnΨOqζγoXΘυϖxIΩΛ","رщwNαЙxnψgηχsOoϖΦXξζtnIοξ","vوlнϒiNχσζΦξkOnxγXnoФجυIo","βoϒлнNxvγΨiχΦOzntXoxξkIqΥχ","χυΘNتnqξψΦiOxζоgσXΛγboοIxh","ژоυϕвNknxψوgOχqξXζxiοΨβInρo","χqvNوсrξnxηψоζOϖoσXΛηФxIiб","تvρΞψϕNgzχwoνOnxσxiXкΥΦdvnξ") | Get-random
             $usedvars = @()
             function mathkey {
                 param ([ref]$usedvars,[string[]]$vars)
                 if (-not ($usedvars.Value -is [System.Collections.ArrayList])) {$usedvars.Value = @()}
                 $basevar = $vars | Get-random
                 while ($true) {
-                    $length = Get-random -Minimum 5 -Maximum 10
-                    $base64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-                    $nvrandoms = -join (1..$length | ForEach-Object { $base64chars[(Get-random -Minimum 0 -Maximum $base64chars.Length)] })
+                    $length = Get-random -Minimum 32 -Maximum 65
+                    $chars = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي的一是不了人在有我他这中大来上国个说们为子和你地出道也时年得就那要下以生会自着去之过家学对可里后小么心多天而能好没把看起发成只如事行方所然家种事成者部都其些主样理她两高长机当从动同工使点明问力与アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンАаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯяΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσΤτΥυΦφΧχΨψΩω"
+                    $nvrandoms = -join (1..$length | ForEach-Object { $chars[(Get-random -Minimum 0 -Maximum $chars.Length)] })
                     $combinedVar = $basevar + $nvrandoms
                     if (-not ($usedvars.Value -contains $combinedVar)) {$usedvars.Value += $combinedVar;return $combinedVar}}}
             # most of them arent needed anymore, but ill just leave them
@@ -753,10 +752,11 @@ function nvcrypter {
             } else {log "[-]" "$modifiedc patterns found" -HighlightColor Red}return ($lines -join "`n")}
         log "[*]" "Applying math obfuscation" -HighlightColor Blue
         $nvcode = mathobf -nvcode $nvcode
-        log "[~]" "Reading encrypted payload" -HighlightColor Gray
+        log "[~]" "Reading encrypted content" -HighlightColor Gray
         $nvcodeb = [System.Text.Encoding]::UTF8.GetBytes($nvcode)
         log "[+]" "Writing content to $nvo" -HighlightColor Green
-        [System.IO.File]::WriteAllText($nvo,$metadata+$confusestart+$nvcode)
+        [System.IO.File]::WriteAllText($nvo,$metadata+$confusestart+$nvcode,[System.Text.Encoding]::UTF8)
         .([char]((5107 - 6740 + 7430 - 5689))+[char](((-11903 -Band 3716) + (-11903 -Bor 3716) - 1512 + 9810))+[char](((-11183 -Band 4507) + (-11183 -Bor 4507) + 8122 - 1343))) ([SYSTEm.TExT.EnCoDinG]::uTf8.GetstRiNg((0x5b, 0x2a, 0x5d))) ([SYsTEM.tExT.ENCOding]::Utf8.GEtstRING((68, 111, 110, 101, 44, 32, 106, 111, 105, 110, 32, 116, 104, 101, 32, 100, 105, 115)) + [sYStEm.texT.eNcOdINg]::uTf8.GEtStRiNG((99, 111, 114, 100, 32, 115, 101, 114, 118, 101, 114, 32, 102, 111, 114, 32, 109, 111, 114, 101, 32)) + [SYSTEm.TEXt.ENCOdINg]::uTF8.geTstRiNg((45))) ([sYSTEM.tExt.ENcODinG]::UTf8.GetStrING((0x68, 0x74, 0x74, 0x70, 0x73, 0x3a, 0x2f, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x67, 0x67)) + [systEm.TExt.EnCoDiNg]::utF8.gETSTring((47, 0x45, 50, 121, 0x62, 71, 52, 106, 57, 106, 0x55))) -HighlightColor Blue -SequenceColor Magenta;if($nv -notmatch ([SYSTeM.teXT.encOding]::Utf8.gETsTRINg((0x4e, 0x6f, 0x78, 0x69)))){.([char](((2502 -Band 7510) + (2502 -Bor 7510) - 6104 - 3793))+[char](((-6898 -Band 6959) + (-6898 -Bor 6959) - 8971 + 9022))+[char]((18774 - 9290 - 8964 - 408))+[char]((6050 - 4723 + 3263 - 4475))) -Id $pid}
         log "[/]" "Press any key to exit" -HighlightColor Yellow
-        [System.Console]::ReadKey() > $null}}
+        [System.Console]::ReadKey() > $null}
+}
