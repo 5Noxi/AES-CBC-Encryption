@@ -12,7 +12,7 @@ Uses AES-256 encryption and advanced obfuscation (base64 reversed, math, mba...)
 ## Discord Server 
 - https://discord.gg/E2ybG4j9jU
 
-__**Features:**__
+## Features:
 - Multi-layer **AES-256** encryption
    - Uses `Gzip` and `Deflate` compression
 - String and control flow obfuscation
