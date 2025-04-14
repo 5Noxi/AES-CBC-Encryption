@@ -1,5 +1,5 @@
 # Omni-Crypter
-Uses AES-256 encryption and advanced obfuscation (base64 reversed, math, bxor, mba...) to make it hard to read or reverse your code. It supports compression, ensures unique keys/variables.
+Uses AES-256 encryption and advanced obfuscation (base64 reversed, math, mba...) to make it hard to read or reverse your code. It supports compression, ensures unique keys/variables.
 
 **Preview:**
 ![omnipre](https://github.com/5Noxi/Omni-Crypter/blob/main/NV-Omni1.png?raw=true)
@@ -12,7 +12,7 @@ Uses AES-256 encryption and advanced obfuscation (base64 reversed, math, bxor, m
 ## Discord Server 
 - https://discord.gg/E2ybG4j9jU
 
-## Features:
+__**Features:**__
 - Multi-layer **AES-256** encryption
    - Uses `Gzip` and `Deflate` compression
 - String and control flow obfuscation
@@ -26,7 +26,7 @@ Uses AES-256 encryption and advanced obfuscation (base64 reversed, math, bxor, m
 - **Math-Based** and Encoding Obfuscation
    - Includes techniques like `Base64&Reversed`, `Bitwise XOR`, `Math` and more
    - **Unique key** generation for each encryption layer *(highly randomized)*
-- **Extremely annoying & hard to reverse ;D**
+- Annoying to reverse
 
 ### Used chars:
 ```ps
