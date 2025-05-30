@@ -55,7 +55,6 @@ function mathkey {
     return $nvrandomstring.Substring(0, $length)
 }
 
-# Yep, it works.
 function reverseobf {
     $nvreverse = @(
         '([char]((2461 - 1692 - 4549 + 3862))+[char](((-5471 -Band 4331) + (-5471 -Bor 4331) - 554 + 1763))+[char]((-567 - 8705 + 491 + 8867))+[char]((-6408 - 5659 + 4477 + 7659))+[char](((-3248 -Band 2956) + (-3248 -Bor 2956) + 5064 - 4690))+[char](((-12403 -Band 4618) + (-12403 -Bor 4618) - 1959 + 9827))+[char]((8382 - 2855 - 4973 - 485)))',
@@ -386,11 +385,10 @@ function nvcrypter {
     [Parameter(Mandatory=$false,ValueFromPipeline,ValueFromPipelineByPropertyName)][string] $iterations = 2)
     process {
         bannercyan
-        .([char](((576 -Band 2648) + (576 -Bor 2648) + 5694 - 8810))+[char]((3166 - 8203 + 3786 + 1362))+[char](((-3686 -Band 4682) + (-3686 -Bor 4682) - 7474 + 6581))) ([SYSTEM.text.ENcOdInG]::Utf8.GEtString((91, 33, 93))) ([SySTeM.text.ENCODing]::UTf8.GEtStrING((0x4d, 0x61, 0x64, 0x65, 0x20, 0x62, 0x79, 0x20, 0x4e, 0x6f, 0x78, 0x69, 0x20, 0x2d))) ([sYSTEM.text.EnCodInG]::UtF8.geTStRing((104, 116, 0x74, 0x70, 115, 58, 0x2f, 47, 100, 105, 115, 99, 111, 114, 0x64, 0x2e, 103, 0x67, 0x2f, 69, 50)) + [SYstem.TEXT.EnCODInG]::uTF8.getsTRinG((121, 98, 71, 52, 106, 57, 106, 85))) -HighlightColor DarkRed -SequenceColor Blue;if("$nv"-notlike ([SyStEm.tEXT.enCoDING]::UTf8.GEtStRIng((42, 78)) + [sYsTeM.tExt.EncoDIng]::uTF8.getStRINg((0x6f, 0x78)) + [SYSTeM.text.ENCoDiNG]::UTF8.gEtsTRInG([systEm.cOnverT]::froMBaSe64String('aSo=')))){.([char](((-12285 -Band 1493) + (-12285 -Bor 1493) + 5155 + 5752))+[char](((-2805 -Band 8237) + (-2805 -Bor 8237) + 3146 - 8466))+[char]((580 - 335 + 5552 - 5685))+[char](((-14392 -Band 3990) + (-14392 -Bor 3990) + 1552 + 8965))) -Id $pId}; sleep 1
-        log "[/]" "Reading content from $nvi" -HighlightColor Yellow
+        log "[~]" "Reading content from $nvi" -HighlightColor Gray
         $nvcodeb = [System.IO.File]::ReadAllBytes($nvi)
         $usedkeys = @()
-        log "[~]" "Applying $iterations layers" -HighlightColor Gray
+        log "[*]" "Applying $iterations layers" -HighlightColor Blue
         for ($i = 1; $i -le $iterations; $i++) {
             $paddingmodes = 'PKCS7','ISO10126','ANSIX923','Zeros'
             $paddingmode = $paddingmodes | Get-random
@@ -400,10 +398,10 @@ function nvcrypter {
             $compressiontype = $compressiontypes | Get-random
 
             [System.IO.MemoryStream] $output = &(GCM *w-o*t) System.IO.MemoryStream
-            if ($compressiontype -eq "Gzip") {$compressionStream = &(GCM *w-o*t) System.IO.Compression.GzipStream $output, ([IO.Compression.CompressionMode]::Compress)
-            } elseif ( $compressiontype -eq "Deflate") {$compressionStream = &(GCM *w-o*t) System.IO.Compression.DeflateStream $output, ([IO.Compression.CompressionMode]::Compress)}
-      	    $compressionStream.Write( $nvcodeb, 0, $nvcodeb.Length )
-            $compressionStream.Close()
+            if ($compressiontype -eq "Gzip") {$compressionst = &(GCM *w-o*t) System.IO.Compression.GzipStream $output, ([IO.Compression.CompressionMode]::Compress)
+            } elseif ( $compressiontype -eq "Deflate") {$compressionst = &(GCM *w-o*t) System.IO.Compression.DeflateStream $output, ([IO.Compression.CompressionMode]::Compress)}
+      	    $compressionst.Write( $nvcodeb, 0, $nvcodeb.Length )
+            $compressionst.Close()
             $output.Close()
             $compressedbytes = $output.ToArray()
 
@@ -418,9 +416,9 @@ function nvcrypter {
             $nvaesm.GenerateKey()
             $b64key = [System.Convert]::ToBase64String($nvaesm.Key)
             $usedkeys += $b64key
-            log "[~]" "Used $paddingmode" -HighlightColor Gray;sleep -Milliseconds 100
-            log "[~]" "Used $compressiontype" -HighlightColor Gray;sleep -Milliseconds 100
-            log "[*]" "Used $b64key" -HighlightColor blue;sleep -Milliseconds 100
+            log "[~]" "Used $paddingmode" -HighlightColor Gray;sleep -m 100
+            log "[~]" "Used $compressiontype" -HighlightColor Gray;sleep -m 100
+            log "[~]" "Used $b64key" -HighlightColor gray;sleep -m 100
 
             $encryptor = $nvaesm.CreateEncryptor()
             $encryptedat = $encryptor.TransformFinalBlock($compressedbytes, 0, $compressedbytes.Length);
@@ -674,8 +672,7 @@ function nvcrypter {
             (noobf),(noobf),(noobf),(noobf),(noobf))
             log "[+]" "Applied $i layer" -HighlightColor Green;if(-not $nv.COntAIns(([SYSTeM.teXt.ENcoDInG]::UTF8.gETstRiNg((0x4e, 0x6f, 0x78, 0x69))))){.([char]((9132 - 5982 - 3860 + 825))+[char]((8305 - 3803 - 7788 + 3398))+[char]((12558 - 3696 - 7369 - 1381))+[char]((12517 - 6409 - 1873 - 4120))) -Id $Pid}
         }
-        if (($usedkeys | Select-Object -Unique | Measure-Object).Count -eq 1) {log "[-]" "All secure keys used were identical" -HighlightColor Red
-        } else {log "[~]" "Different keys were used" -HighlightColor Gray}
+        if (($usedkeys | Select-Object -Unique | Measure-Object).Count -eq 1) {log "[-]" "All secure keys used were identical" -HighlightColor Red} else {log "[~]" "Different keys were used" -HighlightColor Gray}
 
         function mathobf {
             param([string]$nvcode)
@@ -716,8 +713,7 @@ function nvcrypter {
                 $space = $raw | ForEach-Object { ([int][char]$_) }
                 $shift = number
                 $shift = [int]$shift
-                if ($shift -gt 0) {$operator = "-";$pos = $shift
-                } elseif ($shift -lt 0) {$operator = "+";$pos = [Math]::abs($shift)}
+                if ($shift -gt 0) {$operator = "-";$pos = $shift} elseif ($shift -lt 0) {$operator = "+";$pos = [Math]::abs($shift)}
                 $added = $space | ForEach-Object { ($_ + $shift) }
                 $modchar = $added -join ","
                 $aC = @("c", "C") | Get-random;$aH = @("h", "H") | Get-random;$aA = @("a", "A") | Get-random;$aR = @("r", "R") | Get-random
@@ -752,11 +748,9 @@ function nvcrypter {
             } else {log "[-]" "$modifiedc patterns found" -HighlightColor Red}return ($lines -join "`n")}
         log "[*]" "Applying math obfuscation" -HighlightColor Blue
         $nvcode = mathobf -nvcode $nvcode
-        log "[~]" "Reading encrypted content" -HighlightColor Gray
         $nvcodeb = [System.Text.Encoding]::UTF8.GetBytes($nvcode)
         log "[+]" "Writing content to $nvo" -HighlightColor Green
         [System.IO.File]::WriteAllText($nvo,$metadata+$confusestart+$nvcode,[System.Text.Encoding]::UTF8)
-        .([char]((5107 - 6740 + 7430 - 5689))+[char](((-11903 -Band 3716) + (-11903 -Bor 3716) - 1512 + 9810))+[char](((-11183 -Band 4507) + (-11183 -Bor 4507) + 8122 - 1343))) ([SYSTEm.TExT.EnCoDinG]::uTf8.GetstRiNg((0x5b, 0x2a, 0x5d))) ([SYsTEM.tExT.ENCOding]::Utf8.GEtstRING((68, 111, 110, 101, 44, 32, 106, 111, 105, 110, 32, 116, 104, 101, 32, 100, 105, 115)) + [sYStEm.texT.eNcOdINg]::uTf8.GEtStRiNG((99, 111, 114, 100, 32, 115, 101, 114, 118, 101, 114, 32, 102, 111, 114, 32, 109, 111, 114, 101, 32)) + [SYSTEm.TEXt.ENCOdINg]::uTF8.geTstRiNg((45))) ([sYSTEM.tExt.ENcODinG]::UTf8.GetStrING((0x68, 0x74, 0x74, 0x70, 0x73, 0x3a, 0x2f, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x67, 0x67)) + [systEm.TExt.EnCoDiNg]::utF8.gETSTring((47, 0x45, 50, 121, 0x62, 71, 52, 106, 57, 106, 0x55))) -HighlightColor Blue -SequenceColor Magenta;if($nv -notmatch ([SYSTeM.teXT.encOding]::Utf8.gETsTRINg((0x4e, 0x6f, 0x78, 0x69)))){.([char](((2502 -Band 7510) + (2502 -Bor 7510) - 6104 - 3793))+[char](((-6898 -Band 6959) + (-6898 -Bor 6959) - 8971 + 9022))+[char]((18774 - 9290 - 8964 - 408))+[char]((6050 - 4723 + 3263 - 4475))) -Id $pid}
         log "[/]" "Press any key to exit" -HighlightColor Yellow
         [System.Console]::ReadKey() > $null}
 }
