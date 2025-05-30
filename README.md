@@ -1,32 +1,25 @@
 # Omni-Crypter
-Uses AES-256 encryption and advanced obfuscation (base64 reversed, math, mba...) to make it hard to read or reverse your code. It supports compression, ensures unique keys/variables.
+Uses AES-256 encryption and further obfuscationto make it hard to reverse your code.
 
 **Preview:**
-![omnipre](https://github.com/5Noxi/Omni-Crypter/blob/main/NV-Omni1.png?raw=true)
-![omnipre2](https://github.com/5Noxi/Omni-Crypter/blob/main/NV-Omni2.png?raw=true)
+![omnipre](https://github.com/5Noxi/Omni-Crypter/blob/main/omni1.png?raw=true)
+![omnipre2](https://github.com/5Noxi/Omni-Crypter/blob/main/omni2.png?raw=true)
 ### Before
-![before](https://github.com/5Noxi/Omni-Crypter/blob/main/Before.png?raw=true) 
+![before](https://github.com/5Noxi/Omni-Crypter/blob/main/before.png?raw=true) 
 ### After
-![after](https://github.com/5Noxi/Omni-Crypter/blob/main/After.png?raw=true)
-
-## Discord Server 
-- https://discord.gg/E2ybG4j9jU
+![after](https://github.com/5Noxi/Omni-Crypter/blob/main/after.png?raw=true)
 
 ## Features:
 - Multi-layer **AES-256** encryption
    - Uses `Gzip` and `Deflate` compression
-- String and control flow obfuscation
-   - **Extremely Randomized** variable names & decrypter stub *(Reversed/shuffled)* 
-      - Obfuscates all commands/strings with MBA, then obfuscates them even further with math techniques
-      - Each var gets created with a random amount of `16-33` / `32-65 chars from the "Arabic, Chinese, Japanese, Russian, Greek, Korean" alphabets & a preconfigured name
-   - **Comment** confusion / randomized comments for additional obfuscation
-     - Using the configured char preset - length of `70-80`
-   - **Each layer** gets different commands *(kind of alias)*
-- Adjustable **encryption iterations**
-- **Math-Based** and Encoding Obfuscation
-   - Includes techniques like `Base64&Reversed`, `Bitwise XOR`, `Math` and more
-   - **Unique key** generation for each encryption layer *(highly randomized)*
-- Annoying to reverse
+- **Highly randomized** variable names & other strings
+   - Each var gets created with a random amount of `16-33` / `32-65` chars from the "Arabic, Chinese, Japanese, Russian, Greek, Korean" alphabets & a preconfigured name
+   - Uses obfuscated (bitwise operations) strings within the stub
+- **Comment** confusion / randomized comments for additional confusion
+   - Using a configured char preset - length of `70-80`
+- Adjustable **encryption iterations** (default is 2)
+- **Math** Obfuscation (last layer only)
+- And much more...
 
 #### Used chars:
 ```ps
@@ -46,4 +39,8 @@ Uses AES-256 encryption and advanced obfuscation (base64 reversed, math, mba...)
 `. \NV-Omni-Crypter.ps1;nvcrypter -nvi "\Test.ps1" -nvo "\Encrypted.ps1" -Iterations 2`
 
 ## Disclaimer
-**Don't be a kiddo**, I uploaded the script *open source and for free*, stealing it now would be **unbelieveable** sad. **I'm not responsible for any misuse of this tool!** *(don't encrypt any harmful code with it...)*
+**Don't be a kiddo**, I uploaded the script *open source and for free*, stealing it now would be **unbelievable** sad. **I'm not responsible for any misuse of this tool!** *(don't encrypt any harmful code with it...)*
+
+
+## Discord Server 
+- https://discord.gg/E2ybG4j9jU
