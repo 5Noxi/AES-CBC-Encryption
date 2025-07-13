@@ -2,6 +2,10 @@
 
 PowerShell encryption using  AES CBC (ECB insecure, CFB/OFB obsolete) and further obfuscation to make it hard to reverse your code. Based on [xencrypt](https://github.com/the-xentropy/xencrypt), but no longer comparable, as everything has been revised. `Input File` is mandatory, if the `Output File` path isn't set, it'll use the current file name and adds `NV-`. Default iteration is `2`, increasing it too much can end up in errors (you should test whether it still starts normally, if not, run the encryption again). A combination with the [minifier](https://github.com/5Noxi/PowerShell-Minifier/tree/main) is possible (before).
 
+Preview:
+
+https://github.com/user-attachments/assets/96c8e28a-934b-4e41-aabd-cda308bd1493
+
 - `256` bit encryption key / `128` bit block size 
    - `Gzip` and `Deflate` compression
    - Cipher block chaining mode
