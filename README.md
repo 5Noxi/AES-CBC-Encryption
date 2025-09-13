@@ -18,9 +18,8 @@ https://github.com/user-attachments/assets/96c8e28a-934b-4e41-aabd-cda308bd1493
 - Adjustable iterations (default is `2`)
 - Different character obfuscation (last layer only)
 
-`Detailed Logging` - Displays the padding modes, compression types and found patterns (character obfuscation)
-
-`Add Dead Branches` - Adds dead `if` blocks (amount can be changed with `$insc`)
-
- ## Discord Server 
-- https://discord.gg/E2ybG4j9jU
+# GUI Buttons
+| Button            | Description                                                                                          |
+|-------------------|------------------------------------------------------------------------------------------------------|
+| `Detailed Logging`| Displays the padding modes, compression types, and found patterns (character obfuscation).           |
+| `Add Dead Branches` | Adds dead `if` blocks to the code. The number of inserted branches can be adjusted with `$insc`. |
